@@ -7,16 +7,16 @@ import java.sql.Statement;
 
 public class Connectie {
 
-    //public static final String JDBC_URL = "jdbc:mysql://ID222177_g02.db.webhosting.be?user=ID222177_g02&password=risBiar3";
     public static final String JDBC_URL = "jdbc:sqlite:database.db";
 
     public static void initDB() {
         Connection conn = null;
+        Statement stm = null;
         try {
             conn = DriverManager.getConnection(JDBC_URL);
             System.out.println("Connection to SQLite has been established.");
 
-            Statement stm = conn.createStatement();
+            stm = conn.createStatement();
             stm.execute("CREATE TABLE IF NOT EXISTS `GewonnenSpellen` (\n" +
                     "  `SpelID` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,\n" +
                     "  `SpelerID` INTEGER NOT NULL,\n" +
@@ -62,6 +62,9 @@ public class Connectie {
             try {
                 if (conn != null) {
                     conn.close();
+                }
+                if(stm != null) {
+                    stm.close();
                 }
             } catch (SQLException ex) {
                 System.out.println(ex.getMessage());
