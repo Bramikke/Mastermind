@@ -115,11 +115,6 @@ public class RegistratiePaneel extends GridPane {
             foutbericht.setText(r.getString("ErrDateOfBirthEmpty"));
             return;
         }
-        Pattern pattern = Pattern.compile("\\d{1}[a-zA-Z]{6,}\\d{1}");
-        if (!pattern.matcher(wachtwoord.getText().trim()).matches()) {
-            foutbericht.setText(r.getString("ErrPasswordEmpty"));
-            return;
-        }
         if (!wachtwoord.getText().equals(bevestiging.getText())) {
             foutbericht.setText(r.getString("ErrPasswordNotConfirmed"));
             return;

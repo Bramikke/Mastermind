@@ -1,6 +1,8 @@
 package gui;
 
 import domein.DomeinController;
+
+import java.io.File;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
@@ -162,7 +164,7 @@ public class HoofdPaneel extends BorderPane {
 
         new Thread(() -> {
             if (controller.heeftProfielfoto() != null) {
-                img = new ImageView("https://app-1524829407.000webhostapp.com/" + spelerId + "/profilePic." + controller.heeftProfielfoto());
+                img = new Filehandler().getProfilePic(spelerId, controller.heeftProfielfoto());
                 if (!img.getImage().isError()) {
                     img.setFitHeight(17);
                     img.setFitWidth(17);
@@ -185,7 +187,7 @@ public class HoofdPaneel extends BorderPane {
     private void setBackground() {
         tb = new Thread(() -> {
             if (controller.heeftAchtergrond() != null) {
-                Image bgIm = new Image("https://app-1524829407.000webhostapp.com/" + spelerId + "/backgroundPic." + controller.heeftAchtergrond());
+                Image bgIm = new Filehandler().getBackgroundPic(spelerId, controller.heeftAchtergrond());
                 BackgroundSize bs = new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, false, false, false, true);
                 BackgroundImage bgi = new BackgroundImage(bgIm, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, bs);
                 bg = new Background(bgi);

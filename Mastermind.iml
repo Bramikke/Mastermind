@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="JAVA_MODULE" version="4">
   <component name="EclipseModuleManager">
-    <libelement value="jar://$MODULE_DIR$/dist/lib/mysql-connector-java-5.1.23-bin.jar!/" />
-    <libelement value="jar://$MODULE_DIR$/dist/MasterMind-g02.jar!/" />
-    <libelement value="jar://$MODULE_DIR$/src/extraLibraries/apache-commons-net.jar!/" />
+    <libelement value="file://dist/lib/mysql-connector-java-5.1.23-bin.jar" />
+    <libelement value="file://dist/MasterMind-g02.jar" />
+    <libelement value="file://Libraries/apache-commons-net.jar" />
     <src_description expected_position="1">
       <src_folder value="file://$MODULE_DIR$/src" expected_position="1" />
     </src_description>
@@ -19,7 +19,7 @@
     <orderEntry type="module-library">
       <library name="mysql-connector-java-5.1.23-bin.jar">
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/dist/lib/mysql-connector-java-5.1.23-bin.jar!/" />
+          <root url="file://dist/lib/mysql-connector-java-5.1.23-bin.jar" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -28,7 +28,7 @@
     <orderEntry type="module-library">
       <library name="MasterMind-g02.jar">
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/dist/MasterMind-g02.jar!/" />
+          <root url="file://dist/MasterMind-g02.jar" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -37,7 +37,7 @@
     <orderEntry type="module-library">
       <library name="apache-commons-net.jar">
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/src/extraLibraries/apache-commons-net.jar!/" />
+          <root url="file://Libraries/apache-commons-net.jar" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

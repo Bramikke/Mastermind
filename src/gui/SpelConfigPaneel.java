@@ -279,8 +279,7 @@ public class SpelConfigPaneel extends HBox {
         ObservableList<List<String>> inpData = FXCollections.observableArrayList(data);
         tblWins.setItems(inpData);
         tblWins.setFixedCellSize(25);
-        //tblWins.prefHeightProperty().bind(Bindings.size(tblWins.getItems()).multiply(tblWins.getFixedCellSize()).add(32));
-        tblWins.prefHeightProperty().bind(tblWins.fixedCellSizeProperty().multiply(Bindings.size(tblWins.getItems()).add(1.01)));
+        tblWins.prefHeightProperty().bind(Bindings.size(tblWins.getItems()).multiply(tblWins.getFixedCellSize()).add(28));
         tblWins.minHeightProperty().bind(tblWins.prefHeightProperty());
         tblWins.maxHeightProperty().bind(tblWins.prefHeightProperty());
         if (spellen[0][1] < 20) {
@@ -316,8 +315,7 @@ public class SpelConfigPaneel extends HBox {
         ObservableList<List<String>> inpData = FXCollections.observableArrayList(data);
         tblLoad.setItems(inpData);
         tblLoad.setFixedCellSize(25);
-        //tblLoad.prefHeightProperty().bind(Bindings.size(tblLoad.getItems()).multiply(tblLoad.getFixedCellSize()).add(32));
-        tblLoad.prefHeightProperty().bind(tblLoad.fixedCellSizeProperty().multiply(Bindings.size(tblLoad.getItems()).add(1.01)));
+        tblLoad.prefHeightProperty().bind(Bindings.size(tblLoad.getItems()).multiply(tblLoad.getFixedCellSize()).add(28));
 
     }
 
@@ -345,8 +343,7 @@ public class SpelConfigPaneel extends HBox {
         ObservableList<List<String>> inpData = FXCollections.observableArrayList(data);
         tblChallenge.setItems(inpData);
         tblChallenge.setFixedCellSize(25);
-        //tblChallenge.prefHeightProperty().bind(Bindings.size(tblChallenge.getItems()).multiply(tblChallenge.getFixedCellSize()).add(32));
-        tblChallenge.prefHeightProperty().bind(tblChallenge.fixedCellSizeProperty().multiply(Bindings.size(tblChallenge.getItems()).add(1.01)));
+        tblChallenge.prefHeightProperty().bind(Bindings.size(tblChallenge.getItems()).multiply(tblChallenge.getFixedCellSize()).add(28));
         tblChallenge.setMinHeight(0);
         tblChallenge.setMaxHeight(100);
     }

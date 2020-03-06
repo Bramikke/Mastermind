@@ -2,10 +2,12 @@ package gui;
 
 import domein.DomeinController;
 import domein.Speler;
+
 import java.io.File;
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.ResourceBundle;
+
 import javafx.event.ActionEvent;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
@@ -123,14 +125,9 @@ public class SettingsPaneel extends GridPane {
                 int i = pathProfile.lastIndexOf('.');
                 if (i > 0) {
                     nameProfile = pathProfile.substring(i + 1);
-                    if ("jpg".equals(nameProfile) || "png".equals(nameProfile)) {
-                        foutbericht.setText("");
-                        btnProfile.setText(r.getString("ProfilePic") + " " + r.getString("Selected"));
-                        lblSelectedProfile.setText(r.getString("SelectedFile") + ": " + file.getName());
-                    } else {
-                        foutbericht.setText(r.getString("ErrWrongFile"));
-                        pathProfile = null;
-                    }
+                    foutbericht.setText("");
+                    btnProfile.setText(r.getString("ProfilePic") + " " + r.getString("Selected"));
+                    lblSelectedProfile.setText(r.getString("SelectedFile") + ": " + file.getName());
                 } else {
                     foutbericht.setText(r.getString("ErrWrongFile"));
                     pathProfile = null;
@@ -145,14 +142,9 @@ public class SettingsPaneel extends GridPane {
                 int i = pathBackground.lastIndexOf('.');
                 if (i > 0) {
                     nameBackground = pathBackground.substring(i + 1);
-                    if ("jpg".equals(nameBackground) || "png".equals(nameBackground)) {
-                        foutbericht.setText("");
-                        btnBackground.setText(r.getString("BackgroundPic") + " " + r.getString("Selected"));
-                        lblSelectedBackground.setText(r.getString("SelectedFile") + ": " + file.getName());
-                    } else {
-                        foutbericht.setText(r.getString("ErrWrongFile"));
-                        pathBackground = null;
-                    }
+                    foutbericht.setText("");
+                    btnBackground.setText(r.getString("BackgroundPic") + " " + r.getString("Selected"));
+                    lblSelectedBackground.setText(r.getString("SelectedFile") + ": " + file.getName());
                 } else {
                     foutbericht.setText(r.getString("ErrWrongFile"));
                     pathBackground = null;
@@ -205,34 +197,33 @@ public class SettingsPaneel extends GridPane {
             if (pathProfile != null || pathBackground != null) {
                 if ("Delete".equals(pathProfile)) {
                     if (controller.heeftProfielfoto() != null) {
-                        query += "profielfoto=null";
+                        query += "profielfoto=null,";
                     }
                 }
                 if ("Delete".equals(pathBackground)) {
                     if (controller.heeftAchtergrond() != null) {
-                        query += "achtergrond=null";
+                        query += "achtergrond=null,";
                     }
                 }
                 if (!"Delete".equals(pathProfile) || !"Delete".equals(pathBackground)) {
-                    FTPserver ftp = new FTPserver();
+                    Filehandler handler = new Filehandler();
                     if (!"Delete".equals(pathProfile) && pathProfile != null) {
-                        ftp.uploadFile(pathProfile, "profilePic", nameProfile, speler.getId());
+                        handler.uploadFile(pathProfile, "profilePic", nameProfile, speler.getId());
                         if (controller.heeftProfielfoto() == null ? nameProfile != null : !controller.heeftProfielfoto().equals(nameProfile)) {
-                            query += "profielfoto='" + nameProfile + "'";
+                            query += "profielfoto='" + nameProfile + "',";
                         }
                     }
                     if (!"Delete".equals(pathBackground) && pathBackground != null) {
-                        ftp.uploadFile(pathBackground, "backgroundPic", nameBackground, speler.getId());
+                        handler.uploadFile(pathBackground, "backgroundPic", nameBackground, speler.getId());
                         if (controller.heeftAchtergrond() == null ? nameBackground != null : !controller.heeftAchtergrond().equals(nameBackground)) {
-                            query += "achtergrond='" + nameBackground + "'";
+                            query += "achtergrond='" + nameBackground + "',";
                         }
                     }
                 }
             }
             if (query.length() > 0) {
-                controller.updateProfiel(query);
+                controller.updateProfiel(query.substring(0, query.length()-1));
             }
-            //hoofdPaneel.toonAanmelden();
             aanmeld.aanmelden();
         });
         foutbericht.getStyleClass().add("foutbericht");
@@ -244,9 +235,10 @@ public class SettingsPaneel extends GridPane {
     private static void configureFileChooser(final FileChooser fileChooser) {
         fileChooser.setInitialDirectory(new File(System.getProperty("user.home")));
         fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("All Images", Arrays.asList("*.jpg","*.png")),
+                new FileChooser.ExtensionFilter("All Images", Arrays.asList("*.jpg", "*.png", "*.jpeg")),
                 new FileChooser.ExtensionFilter("JPG", "*.jpg"),
-                new FileChooser.ExtensionFilter("PNG", "*.png")
+                new FileChooser.ExtensionFilter("PNG", "*.png"),
+                new FileChooser.ExtensionFilter("JPEG", "*.jpeg")
         );
     }
 

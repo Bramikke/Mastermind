@@ -35,5 +35,6 @@ hs_err_pid*
 /.idea/
 /dist/
 
-# database
+# database and user files
 /database.db
+/.files/

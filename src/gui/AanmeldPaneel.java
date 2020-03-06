@@ -44,8 +44,6 @@ public class AanmeldPaneel extends GridPane {
         setPadding(new Insets(10));
         setHgap(10);
         setVgap(10);
-//        prefWidthProperty().bind(hoofdPaneel.widthProperty());
-//        prefHeightProperty().bind(hoofdPaneel.heightProperty());
 
         ColumnConstraints col1 = new ColumnConstraints();
         col1.setHalignment(HPos.RIGHT);

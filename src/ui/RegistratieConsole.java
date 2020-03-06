@@ -70,15 +70,8 @@ public class RegistratieConsole {
             throw new IllegalArgumentException("Geen correcte input");
         }
         //wachtwoord
-        Pattern pattern = Pattern.compile("\\d{1}[a-zA-Z]{6,}\\d{1}");
         System.out.printf("%s: ", r.getString("Password"));
         password = sc.nextLine();
-        
-        while (!pattern.matcher(password).matches()) {
-            System.out.printf(ANSI_RED + "%s%n" + ANSI_RESET, r.getString("ErrEmptyPassword"));
-            System.out.printf("%s: ", r.getString("Password"));
-            password = sc.nextLine();
-        }
         //bevestiging wachtwoord
         System.out.printf("%s: ", r.getString("ConfirmPassword"));
         passwordVerify = sc.nextLine();
