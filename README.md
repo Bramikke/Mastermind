@@ -1,4 +1,6 @@
 # Mastermind - JavaFX
+![GitHub last commit](https://img.shields.io/github/last-commit/BramIkke/Mastermind) &nbsp;
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/BramIkke/Mastermind)
 
 This is a javafx based project. This project is made in 2018 with some friends in school. I was a beginning programmer. My friends were the game analysts and testers and I was the programmer. We had a lot of fun making this project.
 
