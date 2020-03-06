@@ -26,6 +26,7 @@ hs_err_pid*
 /vpproject/
 /build/
 /dist/
+/classes/
 
 # visual paradigm
 /vpproject/
