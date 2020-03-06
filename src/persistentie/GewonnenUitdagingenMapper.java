@@ -15,7 +15,7 @@ public class GewonnenUitdagingenMapper {
     private static final String GET_SCORES = "SELECT Speler.SpelerID, naam, voornaam, SUM(Punten) AS PuntenTotaal, COUNT(case when Punten = 3 then 1 else null end) AS AantalWins, Level "
             + "FROM GewonnenUitdagingen INNER JOIN Speler ON GewonnenUitdagingen.SpelerID = Speler.spelerID "
             + "WHERE Level = ? "
-            + "GROUP BY SpelerID, Level "
+            + "GROUP BY Speler.SpelerID, Level "
             + "ORDER BY PuntenTotaal DESC, AantalWins DESC";
 
     public void voegToe(int spelerID, int punten, int level) {
