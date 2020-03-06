@@ -1,0 +1,63 @@
+#titel
+{
+    -fx-font-size: 2.5em;
+    -fx-font-weight: bold;
+}
+
+.hoofding
+{
+    -fx-font-size: 1.5em;
+    -fx-font-weight: bold;
+}
+
+.foutbericht
+{
+    -fx-text-fill: red;
+}
+
+#status
+{
+    -fx-background-color: #b7d6ff;
+}
+
+#lblstatus
+{
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+#question
+{
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+#SelectedItem {
+    -fx-background-color: #ACCEF7; 
+}
+
+#SelectedItem .label {
+    -fx-text-fill: white;    
+}
+
+#titelBox {
+    -fx-background-image: url("/gui/images/HeaderBackGround.png");
+    -fx-background-size: stretch;
+}
+
+.table-row-cell:empty {
+    -fx-background-color: white;
+}
+ 
+.table-row-cell:empty .table-cell {
+    -fx-border-width: 0px;
+}
+
+.text-field.error {
+  -fx-text-box-border: red ;
+  -fx-focus-color: red ;
+}
+
+.button, .menu-button, .radio-button {
+    -fx-cursor:hand;
+}
