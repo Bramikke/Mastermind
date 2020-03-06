@@ -46,20 +46,21 @@ public class DomeinController {
      * @return stars
      */
     public String aantalStars() {
+        String[] starList = {"★★★★★", "★★★★☆", "★★★☆☆", "★★☆☆☆", "★☆☆☆☆", "☆☆☆☆☆"};
         String outputStars;
         int aantalWins = spellenRepository.aantalWins(GewonnenSpel);
         if (aantalWins >= 250) {
-            outputStars = "★★★★★";
+            outputStars = starList[0];
         } else if (aantalWins >= 100) {
-            outputStars = "★★★★☆";
+            outputStars = starList[1];
         } else if (aantalWins >= 50) {
-            outputStars = "★★★☆☆";
+            outputStars = starList[2];
         } else if (aantalWins >= 20) {
-            outputStars = "★★☆☆☆";
+            outputStars = starList[3];
         } else if (aantalWins >= 10) {
-            outputStars = "★☆☆☆☆";
+            outputStars = starList[4];
         } else {
-            outputStars = "☆☆☆☆☆";
+            outputStars = starList[5];
         }
         return outputStars;
     }
